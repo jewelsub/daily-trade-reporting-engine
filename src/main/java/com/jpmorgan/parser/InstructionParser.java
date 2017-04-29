@@ -46,8 +46,12 @@ public class InstructionParser {
         List<Instruction> instructions = new ArrayList<>();
         Reader fileReader;
 
+        if (filePath == null){
+            throw new InstructionFileReaderException(INSTRUCTION_FILE_READING_EXCEPTION, filePath);
+        }
+
         try {
-            fileReader = new FileReader(ClassLoader.getSystemResource(filePath).getFile());
+            fileReader = new FileReader(filePath);
         } catch (FileNotFoundException e) {
             throw new InstructionFileReaderException(INSTRUCTION_FILE_READING_EXCEPTION, filePath);
         }

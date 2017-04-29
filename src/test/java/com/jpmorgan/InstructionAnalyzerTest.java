@@ -12,7 +12,7 @@ import static org.junit.Assert.assertTrue;
 
 public class InstructionAnalyzerTest {
 
-    private static final String DATA_FILE_PATH = "sampledata.txt";
+    private static final String DATA_FILE_PATH = ClassLoader.getSystemResource("sampledata.txt").getFile();
     private static final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
     @Test public void shouldReturnValidStatisticForBuySummary() {
